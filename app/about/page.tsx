@@ -1,7 +1,9 @@
+import Image from "next/image"
+
 export default  function AboutPage() {
     return (
         <section className="aboutpage-container">
-            <img src="/hero-image-square"/>
+            <Image src="/hero-image-square" alt="PrintForge Community - A group of makers collaborating on 3D printing projects"/>
             <div className="aboutpage-text">
             <h2>About printforge</h2>
             <h1>Empowering makers worldwide</h1>
