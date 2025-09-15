@@ -1,4 +1,5 @@
 import "./globals.css";
+import Link from "next/link"
 import { Albert_Sans, Montserrat_Alternates } from "next/font/google"
 
 const albertSans = Albert_Sans({
@@ -22,8 +23,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${albertSans.className} ${montserratAlternates.variable}`}>
         <header>
-          <img src="/printforge-logo.svg" className="hidden lg:block"/>
-          <img src="/printforge-logo-icon.svg" className="block lg:hidden"/>
+          <Link href="/">
+            <img src="/printforge-logo.svg" className="hidden lg:block"/>
+            <img src="/printforge-logo-icon.svg" className="block lg:hidden"/>
+          </Link>
+          
         </header>
         {children}
       </body>
