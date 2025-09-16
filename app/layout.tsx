@@ -1,6 +1,7 @@
 import "./globals.css";
 import Link from "next/link"
 import { Albert_Sans, Montserrat_Alternates } from "next/font/google"
+import type { RootLayoutProps } from "@/app/types"
 
 const albertSans = Albert_Sans({
   subsets: ["latin"],
@@ -16,9 +17,7 @@ const montserratAlternates = Montserrat_Alternates({
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: RootLayoutProps) {
   return (
     <html lang="en">
       <body className={`${albertSans.className} ${montserratAlternates.variable}`}>
