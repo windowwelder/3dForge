@@ -1,8 +1,13 @@
+"use client"
+
 import Link from "next/link";
 import PFLogoIcon from "@/public/printforge-logo-icon.svg";
 import PFLogo from "@/public/printforge-logo.svg";
+import NavLink from "@/app/components/NavLink"
+import {usePathname} from 'next/navigation'
 
 export default function Navbar() {
+  const path = usePathname()
   return (
     <header>
       <nav>
@@ -22,10 +27,10 @@ export default function Navbar() {
         </Link>
         <ul>
           <li>
-            <Link href="/3d-models">3D Models</Link>
+            <NavLink href="/3d-models" isActive={path === "/3d-models"}>3D Models</NavLink>
           </li>
           <li>
-            <Link href="/about">About</Link>
+            <NavLink href="/about" isActive={path === "/about"}>About</NavLink>
           </li>
         </ul>
       </nav>
