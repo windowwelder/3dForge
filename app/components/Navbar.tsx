@@ -27,7 +27,7 @@ export default function Navbar() {
         </Link>
         <ul>
           <li>
-            <NavLink href="/3d-models" isActive={path === "/3d-models"}>3D Models</NavLink>
+            <NavLink href="/3d-models" isActive={path.startsWith("/3d-models")}>3D Models</NavLink>
           </li>
           <li>
             <NavLink href="/about" isActive={path === "/about"}>About</NavLink>

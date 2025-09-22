@@ -13,7 +13,6 @@ export default function ModelsLayout( { children }: { children : ReactNode } ) {
           {/* Fading edge/gradient for horizontal scroll hint on mobile */}
         </div>
       </aside>
-
       {/* Main Content Area */}
       <main>{children}</main>
     </div>
