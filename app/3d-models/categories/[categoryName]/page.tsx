@@ -9,8 +9,5 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const category = getCategoryBySlug(categoryName)
   const categoryModel =  await getModels({category: category.slug})
 
-  return <section>
-            <h1>{category.displayName}</h1>
-            <ModelsGrid title={category.displayName} models={categoryModel} />
-         </section>
+  return <ModelsGrid title={category.displayName} models={categoryModel} />
 }
