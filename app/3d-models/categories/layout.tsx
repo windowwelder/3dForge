@@ -1,20 +1,12 @@
-"use client"
-
 import type { ReactNode } from "react"
-import ModelsNavbar from "@/app/components/ModelsNavbar"
+import CategoriesNav from "@/app/components/CategoriesNav"
 
-export default function ModelsLayout( { children }: { children : ReactNode } ) {
-    return (
-    <div>
-      {/* Responsive Navigation */}
-      <aside>
-        <div>
-          <ModelsNavbar />
-          {/* Fading edge/gradient for horizontal scroll hint on mobile */}
-        </div>
-      </aside>
-      {/* Main Content Area */}
-      <main>{children}</main>
+export default function ModelsLayout({ children }: { children: ReactNode }) {
+
+  return (
+    <div className="relative flex flex-col min-h-screen md:flex-row">
+      <CategoriesNav />
+      <main className="flex-1 p-4 md:ml-64">{children}</main>
     </div>
   )
 }

@@ -1,18 +1,32 @@
 import ModelsGrid from "@/app/components/ModelsGrid"
-import type { ModelsPageProps, Model } from "@/app/types"
+import type { ModelsPageProps } from "@/app/types"
 import { getModels } from "@/app/lib/models"
 
-export default async function Page( { searchParams } ) {
+
+export default async function Page({ searchParams }: ModelsPageProps) {
     const models = await getModels()
-    const { q }: ModelsPageProps = await searchParams
-    const filteredModels = q ? models.filter( (mod: Model): Model => mod.description.toLowerCase().includes(q.toLowerCase()) || mod.name.toLowerCase().includes(q.toLowerCase())) : models
+    const query = (await searchParams)?.q?.toLowerCase() || ""
+
+    const filteredModels = query
+        ? models.filter(model =>
+            model.name.toLowerCase().includes(query) ||
+            model.description.toLowerCase().includes(query)
+        )
+        : models
 
     return (
         <>
-            <form>
-                <input type="text" placeholder="search" name="q" defaultValue={q} />
+            <form className="w-full px-5 md:px-0 md:max-w-xl">
+                <input
+                    type="text"
+                    name="query"
+                    placeholder="E.g. dragon"
+                    autoComplete="off"
+                    defaultValue={query}
+                    className="w-full py-3 pl-5 pr-5 text-sm placeholder-gray-500 bg-white border border-[#606060] rounded-full focus:border-[#606060] focus:outline-none focus:ring-0 md:text-base"
+                />
             </form>
-          <ModelsGrid title="3D Models" models={filteredModels} />
+            <ModelsGrid title="3D Models" models={filteredModels} />
         </>
     )
 }
